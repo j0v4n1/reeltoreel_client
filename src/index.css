@@ -1,13 +1,14 @@
 body {
-    margin: 0;
+  margin: 0;
+
 }
 
 @font-face {
-    font-family: 'Bebas Neue';
-    src: url('../public/fonts/BebasNeue-Regular.woff2') format('woff2');
+  font-family: 'Bebas Neue';
+  src: url('../public/fonts/BebasNeue-Regular.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Bebas Neue Cyrillic';
-    src: url('../public/fonts/BebasNeueCyrillic.woff2') format('woff2');
+  font-family: 'Bebas Neue Cyrillic';
+  src: url('../public/fonts/BebasNeueCyrillic.woff2') format('woff2');
 }
