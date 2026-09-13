@@ -1,0 +1,122 @@
+.header__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 29px 24px;
+}
+
+.header__actions {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 169px;
+}
+
+.header__action {
+    background-color: white;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.header__login {
+    font-family: Inter, sans-serif;
+    text-decoration: none;
+    color: #666666;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 204px;
+}
+
+.header__link,
+.header__catalog,
+.header__collections,
+.header__phone {
+    font-family: Inter, sans-serif;
+    text-decoration: none;
+    color: #666666;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.header__bottom {
+    display: flex;
+    align-items: center;
+    border: solid 1px #E0E0E0;
+}
+
+.header__actions {
+    margin-left: auto;
+}
+
+.header__logo {
+    margin-right: 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1A1A;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.header__phone {
+    margin-left: auto;
+}
+
+.header__catalog,
+.header__collections {
+    max-width: 237px;
+    border: none;
+    background: white;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    border-right: 1px solid #E0E0E0;
+    color: #1A1A1A;
+}
+
+.header__search {
+    padding: 18px 0 18px 24px;
+    display: flex;
+    align-items: center;
+}
+
+.header__search-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.header__search-input {
+    max-width: 228px;
+    border: none;
+    padding: 0;
+}
+
+.header__search-input::placeholder {
+    font-family: Inter, sans-serif;
+    text-decoration: none;
+    color: #666666;
+    font-size: 16px;
+    line-height: 140%;
+
+}
+
+.header__search-input:focus {
+    outline: none;
+}
+
+.header__search-input:focus::placeholder {
+    opacity: 0;
+}
+
+.header__phone {
+    margin-right: 24px;
+    line-height: 140%;
+    text-transform: none;
+}
