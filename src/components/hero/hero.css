@@ -51,3 +51,8 @@
   padding: 20px 40px;
   background-color: white;
 }
+
+.hero__button:active {
+  background-color: #1e4fdb;
+  color: white;
+}

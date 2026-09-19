@@ -1,16 +1,34 @@
 import './app.css';
 import Header from '../header/header.tsx';
-import RunningLine from '../running-line/running-line.tsx';
 import Hero from '../hero/hero.tsx';
+import RunningLine from '../running-line/running-line.tsx';
 import Categories from '../categories/categories.tsx';
 import Products from '../products/products.tsx';
 import Subscribe from '../subscribe/subscribe.tsx';
 import Footer from '../footer/footer.tsx';
+import Modal from '../modal/modal.tsx';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    if (isModalOpen) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.body.style.paddingRight = `0px`;
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
+
   return (
     <div className="app">
-      <Header />
+      <Header setIsOpen={setIsModalOpen} />
       <main>
         <Hero />
         <RunningLine />
@@ -19,6 +37,7 @@ function App() {
         <Subscribe />
       </main>
       <Footer />
+      {isModalOpen ? <Modal setIsOpen={setIsModalOpen} /> : <></>}
     </div>
   );
 }
