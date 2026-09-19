@@ -30,12 +30,11 @@ export default function Header() {
       <div className={'header__bottom'}>
         <button className={'header__catalog'}>
           <img src="/images/burger.svg" alt="меню" />
-          <span>Каталог</span>
+          <span className={'header__catalog--text'}>Каталог</span>
           <img src="/images/angle_down.svg" alt="стрелка вниз" />
         </button>
         <button className={'header__collections'}>
-          <img src="/images/burger.svg" alt="меню" />
-          <span>Коллекции</span>
+          <span className={'header__collections--text'}>Коллекции</span>
           <img src="/images/angle_down.svg" alt="стрелка вниз" />
         </button>
         <div className={'header__search'}>

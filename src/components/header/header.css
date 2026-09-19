@@ -1,3 +1,7 @@
+.header {
+  background-color: white;
+}
+
 .header__top {
   display: flex;
   align-items: center;
@@ -48,6 +52,14 @@
   display: flex;
   align-items: center;
   border: solid 1px #E0E0E0;
+}
+
+.header__catalog--text {
+  margin: 0 72px 0 12px;
+}
+
+.header__collections--text {
+  margin: 0 72px 0 0;
 }
 
 .header__actions {
