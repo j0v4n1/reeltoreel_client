@@ -1,6 +1,57 @@
 import './products.css';
+import { productCards } from '../../mocks/product-card.ts';
+import { useState } from 'react';
 
 export default function Products() {
+  const [products, setProducts] = useState(productCards);
+
+  const toggleFavourites = (id: number) => {
+    setProducts((prevProducts) => {
+      return prevProducts.map((product) => {
+        if (id === product.id) {
+          return { ...product, isFavourite: !product.isFavourite };
+        } else {
+          return product;
+        }
+      });
+    });
+  };
+
+  const productCardsList = products.map((product) => {
+    return (
+      <article key={product.id} className={'products__article'}>
+        <button
+          onClick={() => {
+            toggleFavourites(product.id);
+          }}
+          className={'products__button-favorite'}>
+          <img
+            className={'products__image-favorite'}
+            src={
+              product.isFavourite
+                ? '/images/favor-checked.svg'
+                : '/images/favor.svg'
+            }
+            alt="Избранное"
+          />
+        </button>
+        <div className="products__badges">
+          {product.isHit && <span className="products__badge">Хит продаж</span>}
+          {product.isNew && <span className="products__badge">Новинка</span>}
+        </div>
+        <img
+          className={'products__image'}
+          src={product.image}
+          alt={product.alt}
+        />
+        <span className={'products__category'}>{product.category}</span>
+        <h3 className={'products__name'}>{product.name}</h3>
+        <p className={'products__price'}>{product.price} ₽</p>
+        <button className={'products__button-cart'}>В корзину</button>
+      </article>
+    );
+  });
+
   return (
     <section className={'products'}>
       <div className={'products__tabs'}>
@@ -18,48 +69,7 @@ export default function Products() {
         </button>
         <button className={'products__tab'}>Смотреть все товары</button>
       </div>
-      <div className={'products__content'}>
-        <article className={'products__article'}>
-          <button className={'products__button--favor'}>
-            <img className={'products__image--favor'} src="/images/favor.svg" alt="" />
-          </button>
-          <img className={'products__image'} src="/images/vinil_player.png" alt="" />
-          <span className={'products__category'}>Audio-Technica</span>
-          <h3 className={'products__name'}>AT-LPW40WN</h3>
-          <p className={'products__price'}>110 000 ₽</p>
-          <button className={'products__button-cart'}>В корзину</button>
-        </article>
-        <article className={'products__article'}>
-          <button className={'products__button--favor'}>
-            <img className={'products__image--favor'} src="/images/favor.svg" alt="" />
-          </button>
-          <img className={'products__image'} src="/images/player.png" alt="" />
-          <span className={'products__category'}>WiiM</span>
-          <h3 className={'products__name'}>Amp Pro Space Grey</h3>
-          <p className={'products__price'}>49 970 ₽</p>
-          <button className={'products__button-cart'}>В корзину</button>
-        </article>
-        <article className={'products__article'}>
-          <button className={'products__button--favor'}>
-            <img className={'products__image--favor'} src="/images/favor.svg" alt="" />
-          </button>
-          <img className={'products__image'} src="/images/microphone.png" alt="" />
-          <span className={'products__category'}>shure</span>
-          <h3 className={'products__name'}>SM7B</h3>
-          <p className={'products__price'}>46 490 ₽</p>
-          <button className={'products__button-cart'}>В корзину</button>
-        </article>
-        <article className={'products__article'}>
-          <button className={'products__button--favor'}>
-            <img className={'products__image--favor'} src="/images/favor.svg" alt="" />
-          </button>
-          <img className={'products__image'} src="/images/cable.png" alt="" />
-          <span className={'products__category'}>HeadMade</span>
-          <h3 className={'products__name'}>Pro 2RCA - 3.5mm Black 1m</h3>
-          <p className={'products__price'}>2 630 ₽</p>
-          <button className={'products__button-cart'}>В корзину</button>
-        </article>
-      </div>
+      <div className={'products__content'}>{productCardsList}</div>
       <div className={'products__navigation'}>
         <button className="products__navigation-button">НАЗАД</button>
       </div>
