@@ -3,6 +3,7 @@ import './catalog.css';
 interface CatalogMenuProps {
   isOpen: boolean;
 }
+
 export default function Catalog({ isOpen }: CatalogMenuProps) {
   return (
     <div className={`catalog ${isOpen ? 'catalog--open' : ''}`}>

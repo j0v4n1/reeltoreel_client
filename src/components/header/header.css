@@ -18,10 +18,28 @@
 }
 
 .header__action {
+  position: relative;
   background-color: white;
   padding: 0;
   border: none;
   cursor: pointer;
+}
+
+.header__action-count {
+  top: 0;
+  right: -18px;
+  color: white;
+  width: 14px;
+  height: 14px;
+  background: #1A1A1A;
+  position: absolute;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.header__action-count--cart {
+  background: #2563eb;
 }
 
 .header__login {

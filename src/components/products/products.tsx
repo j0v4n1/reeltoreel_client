@@ -1,34 +1,24 @@
 import './products.css';
 import { productCards } from '../../mocks/product-card.ts';
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../store/hook.ts';
+import { toggleFavorite } from '../../store/slices/favourite-slice.ts';
 
 export default function Products() {
-  const [products, setProducts] = useState(productCards);
+  const dispatch = useAppDispatch();
+  const favoriteIds = useAppSelector((state) => state.favorites.ids);
 
-  const toggleFavourites = (id: number) => {
-    setProducts((prevProducts) => {
-      return prevProducts.map((product) => {
-        if (id === product.id) {
-          return { ...product, isFavourite: !product.isFavourite };
-        } else {
-          return product;
-        }
-      });
-    });
-  };
-
-  const productCardsList = products.map((product) => {
+  const productCardsList = productCards.map((product) => {
     return (
       <article key={product.id} className={'products__article'}>
         <button
           onClick={() => {
-            toggleFavourites(product.id);
+            dispatch(toggleFavorite(product.id));
           }}
           className={'products__button-favorite'}>
           <img
             className={'products__image-favorite'}
             src={
-              product.isFavourite
+              favoriteIds.includes(product.id)
                 ? '/images/favor-checked.svg'
                 : '/images/favor.svg'
             }
